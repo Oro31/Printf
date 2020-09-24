@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 16:53:35 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/24 00:33:32 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/24 22:35:01 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,60 @@ int		ft_is_conv(const char c)
 	return (0);
 }
 
-int		ft_is_flag(const char c)
+int		*ft_init_opt(void)
 {
-	if (ft_isdigit(c) || c == '-' || c == '*' || c == '.')
-		return (1);
+	int		*opt;
+	int		i;
+
+	i = 0;
+	if (!(opt = malloc(sizeof(int) * 5)))
+		return (NULL);
+	while (i < 5)
+	{
+		opt[i] = 0;
+		i++;
+	}
+	return (opt);
+}
+
+int		ft_handle_options(const char *format, int *opt, int i, va_list ap)
+{
+	while (!(ft_is_conv(format[i])) && format[i])
+	{
+		if (format[i] == '-')
+			opt[0] = 1;
+		else if (format[i] == '0')
+			opt[1] = 1;
+		else if ((format[i] == '*' || (format[i] > 48 && 
+						format[i] < 58)) && (format[i - 1] != '.' &&
+							opt[2] == 0))
+		{
+			opt[3] = ft_fieldwidth(format, i, ap, opt);
+			i = opt[4];
+		}
+		else if (format[i] == '.')
+		{
+			opt[2] = ft_precision(format, i, ap, opt);
+			i = opt[4];
+		}
+		i++;
+	}
+	return (i);
+}
+
+int		ft_conv(const char *format, int *opt, int i, va_list ap)
+{
+	if (format[i] == 'c')
+		return (ft_is_c(ap, opt));
+	else if (format[i] == 'd' || format[i] == 'i' || format[i] == 'u')
+		return (ft_is_diu(ap, opt));
+	else if (format[i] == 'p')
+		return (ft_is_p(ap, opt));
+	else if (format[i] == 's')
+		return (ft_is_s(ap, opt));
+	else if (format[i] =='x')
+		return (ft_is_x(ap, opt, 1));
+	else if (format[i] == 'X')
+		return (ft_is_x(ap, opt, 2));
 	return (0);
 }

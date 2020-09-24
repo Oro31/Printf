@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 10:01:19 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/24 00:38:18 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/24 22:20:11 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@ int ft_is_conv(const char c);
 int	ft_is_flag(const char c);
 int	ft_precision(const char *format, int i, va_list ap, int *opt);
 int	ft_fieldwidth(const char *format, int i, va_list ap, int *opt);
+int	ft_handle_options(const char *format, int *opt, int i, va_list ap);
+int	ft_conv(const char *format, int *opt, int i, va_list ap);
+int	*ft_init_opt(void);
 
 #endif
