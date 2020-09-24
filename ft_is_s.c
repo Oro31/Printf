@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 23:48:22 by rvalton           #+#    #+#             */
-/*   Updated: 2020/07/26 01:40:56 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/24 03:38:21 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ft_print_zeroopt(char *s, int len, int *options)
 
 	c = 0;
 	i = 0;
-	if (options[2] < len && options[2] >= 0)
+	if (options[2] < len && options[2] > 0)
 		len = options[2];
 	while (options[3] > len)
 	{
@@ -50,7 +50,7 @@ static int	ft_print_zeroopt(char *s, int len, int *options)
 		c++;
 		options[3]--;
 	}
-	while (len > 0)
+	while (len - i > 0)
 	{
 		ft_putchar(*(s + i));
 		i++;
@@ -114,11 +114,10 @@ int		ft_is_s(va_list ap, int *options)
 		return (ft_print_minusopt(s, len, options));
 	else if (options[1] == 1)
 		return (ft_print_zeroopt(s, len, options));
-	else if (options[2] < len && options[2] >= 0)
+	else if (options[2] < len && options[2] > 0)
 		return (ft_print_precopt(s, options));
 	else if (options[3] > len)
 		return (ft_print_widthopt(s, len, options));
-	else
-		ft_putstr(s);
+	ft_putstr(s);
 	return (len);
 }

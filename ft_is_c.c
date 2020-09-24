@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 01:37:58 by rvalton           #+#    #+#             */
-/*   Updated: 2020/07/26 02:25:40 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/24 03:56:47 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_print_minusopt(char c, int *options)
 	int		i;
 
 	i = 1;
-	ft_putchar(i);
+	ft_putchar(c);
 	while (options[3] > 1)
 	{
 		ft_putchar(' ');

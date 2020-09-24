@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 01:56:24 by rvalton           #+#    #+#             */
-/*   Updated: 2020/07/26 02:43:47 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/24 00:43:46 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_print_minusopt(int len, int *options, void *p)
 	return (c);
 }
 
-static int	ft_pritn_zeroopt(unsigned long n, int len, int *options)
+static int	ft_print_zeroopt(unsigned long n, int len, int *options)
 {
 	int		c;
 

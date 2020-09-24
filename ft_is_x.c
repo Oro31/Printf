@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 04:10:15 by rvalton           #+#    #+#             */
-/*   Updated: 2020/07/26 04:50:48 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/24 00:44:48 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_print_minusopt(long x, int len, int *options, int mode)
 	return (c + len);
 }
 
-static int	ft_print_precopt(long x, int len, int options, int mode)
+static int	ft_print_precopt(long x, int len, int *options, int mode)
 {
 	int		c;
 
@@ -48,10 +48,10 @@ static int	ft_print_precopt(long x, int len, int options, int mode)
 		options[2]--;
 	}
 	ft_puthexa(x, mode);
-	return (c + len)
+	return (c + len);
 }
 
-static int	ft_print_zeroopt(long x, int len, int options, int mode)
+static int	ft_print_zeroopt(long x, int len, int *options, int mode)
 {
 	int		c;
 
@@ -65,7 +65,7 @@ static int	ft_print_zeroopt(long x, int len, int options, int mode)
 	return (c + len);
 }
 
-static int	ft_print_widthopt(long x, int len, int options, int mode)
+static int	ft_print_widthopt(long x, int len, int *options, int mode)
 {
 	int		c;
 
@@ -79,15 +79,11 @@ static int	ft_print_widthopt(long x, int len, int options, int mode)
 	return (c + len);
 }
 
-int		ft_is_x(va_list ap, int *options)
+int		ft_is_x(va_list ap, int *options, int mode)
 {
 	long	x;
-	int		mode;
+	int		len;
 
-	if (options[4] == 'X')
-		mode = 2;
-	else if (options[4] == 'x')
-		mode = 1;
 	x = va_arg(ap, long);
 	len = ft_hexawidth(x);
 	if (options[0] == 1)
@@ -95,9 +91,9 @@ int		ft_is_x(va_list ap, int *options)
 	else if (options[2] >= 0)
 		return (ft_print_precopt(x, len, options, mode));
 	else if (options[1] == 1)
-		return (ft_print_zeroopt());
+		return (ft_print_zeroopt(x, len, options, mode));
 	else if (options[3] > len)
-		return (ft_print_widthopt());
+		return (ft_print_widthopt(x, len, options, mode));
 	ft_puthexa(x, mode);
 	return (len);
 }
