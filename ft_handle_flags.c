@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 02:29:59 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/24 00:19:59 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/25 03:06:21 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,20 @@ int		ft_precision(const char *format, int i, va_list ap, int *opt)
 int		ft_fieldwidth(const char *format, int i, va_list ap, int *opt)
 {
 	int		res;
+	int		j;
 
+	j = 0;
 	res = 0;
 	if (format[i] == '*')
 	{
 		opt[4] = i;
-		return (va_arg (ap, int));
+		j = va_arg (ap, int);
+		if (j < 0)
+		{
+			opt[0] = 1;
+			j = j * -1;
+		}
+		return (j);
 	}
 	while (ft_isdigit(format[i]))
 	{

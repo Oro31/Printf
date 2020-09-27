@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 01:37:58 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/24 03:56:47 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/25 03:40:07 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,14 @@ static int	ft_print_widthopt(char c, int *options)
 	return (i);
 }
 
-int		ft_is_c(va_list ap, int *options)
+int		ft_is_c(va_list ap, int *options, int mode)
 {
 	char	c;
 
-	c = (char) va_arg(ap, int);
+	if (mode == 0)
+		c = (char) va_arg(ap, int);
+	else if (mode == 1)
+		c = '%';
 	if (options[0] == 1)
 		return (ft_print_minusopt(c, options));
 	else if (options[1] == 1)
