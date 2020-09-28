@@ -6,13 +6,13 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 04:10:15 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/26 23:04:54 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/29 01:16:37 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_print_minusopt(long x, int len, int *options, int mode)
+static int	ft_print_minusopt(unsigned int x, int len, int *options, int mode)
 {
 	int		c;
 
@@ -34,7 +34,7 @@ static int	ft_print_minusopt(long x, int len, int *options, int mode)
 	return (c + len);
 }
 
-static int	ft_print_precopt(long x, int len, int *options, int mode)
+static int	ft_print_precopt(unsigned int x, int len, int *options, int mode)
 {
 	int		c;
 
@@ -57,7 +57,7 @@ static int	ft_print_precopt(long x, int len, int *options, int mode)
 	return (c + len);
 }
 
-static int	ft_print_zeroopt(long x, int len, int *options, int mode)
+static int	ft_print_zeroopt(unsigned int x, int len, int *options, int mode)
 {
 	int		c;
 
@@ -71,7 +71,7 @@ static int	ft_print_zeroopt(long x, int len, int *options, int mode)
 	return (c + len);
 }
 
-static int	ft_print_widthopt(long x, int len, int *options, int mode)
+static int	ft_print_widthopt(unsigned int x, int len, int *options, int mode)
 {
 	int		c;
 
@@ -87,10 +87,10 @@ static int	ft_print_widthopt(long x, int len, int *options, int mode)
 
 int		ft_is_x(va_list ap, int *options, int mode)
 {
-	long	x;
-	int		len;
+	unsigned int	x;
+	int				len;
 
-	x = va_arg(ap, long);
+	x = va_arg(ap, unsigned int);
 	len = ft_hexawidth(x);
 	if (options[0] == 1)
 		return (ft_print_minusopt(x, len, options, mode));
