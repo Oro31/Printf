@@ -6,13 +6,13 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 07:24:39 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/27 00:57:12 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/29 03:41:22 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nbrwidth(long n)
+int			ft_nbrwidth(long n)
 {
 	int		c;
 

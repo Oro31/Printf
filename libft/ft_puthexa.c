@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 23:07:34 by rvalton           #+#    #+#             */
-/*   Updated: 2020/07/26 02:08:34 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/29 03:41:55 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_hexawidth(unsigned long n)
 	return (c);
 }
 
-void		ft_puthexa(unsigned long n, int mode)
+void	ft_puthexa(unsigned long n, int mode)
 {
 	char	*hexa;
 	int		c;

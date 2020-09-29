@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 16:53:35 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/26 23:09:51 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/29 03:40:14 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_handle_options(const char *format, int *opt, int i, va_list ap)
 			opt[0] = 1;
 		else if (format[i] == '0')
 			opt[1] = 1;
-		else if ((format[i] == '*' || (format[i] > 48 && 
+		else if ((format[i] == '*' || (format[i] > 48 &&
 						format[i] < 58)) && (format[i - 1] != '.' &&
 							opt[2] == -1))
 		{
@@ -78,7 +78,7 @@ int		ft_conv(const char *format, int *opt, int i, va_list ap)
 		return (ft_is_p(ap, opt));
 	else if (format[i] == 's')
 		return (ft_is_s(ap, opt));
-	else if (format[i] =='x')
+	else if (format[i] == 'x')
 		return (ft_is_x(ap, opt, 1));
 	else if (format[i] == 'X')
 		return (ft_is_x(ap, opt, 2));

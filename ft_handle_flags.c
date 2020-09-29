@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/18 02:29:59 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/29 02:03:33 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/29 03:35:21 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_precision(const char *format, int i, va_list ap, int *opt)
 	if (format[i + 1] == '*')
 	{
 		opt[4] = i + 1;
-		res = va_arg (ap, int);
+		res = va_arg(ap, int);
 		if (res < 0)
 			opt[5] = 0;
 		return (res);
@@ -47,7 +47,7 @@ int		ft_fieldwidth(const char *format, int i, va_list ap, int *opt)
 	if (format[i] == '*')
 	{
 		opt[4] = i;
-		j = va_arg (ap, int);
+		j = va_arg(ap, int);
 		if (j < 0)
 		{
 			opt[0] = 1;

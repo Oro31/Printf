@@ -6,7 +6,7 @@
 /*   By: rvalton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 02:45:34 by rvalton           #+#    #+#             */
-/*   Updated: 2020/09/29 02:00:27 by rvalton          ###   ########.fr       */
+/*   Updated: 2020/09/29 03:37:29 by rvalton          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ static int	ft_print_widthopt(int d, int len, int *options, int u)
 	return (c + len);
 }
 
-int		ft_is_di(va_list ap, int *options)
+int			ft_is_di(va_list ap, int *options)
 {
 	int		d;
 	int		u;
